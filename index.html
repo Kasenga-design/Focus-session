@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17243b">
+  <meta name="description" content="Still & Steady — a peaceful Christian focus timer with Scripture, gentle breaks and music.">
+  <title>Still &amp; Steady — A little space with God</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="theme-dusk">
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#home" aria-label="Still and Steady home">
+      <span class="brand-star">✦</span>
+      <span>still <em>&amp;</em> steady</span>
+    </a>
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#home" class="nav-link active" data-nav="home">Home</a>
+      <a href="#session" class="nav-link" data-nav="session">Focus room</a>
+      <button class="icon-button" id="openSettings" type="button" aria-label="Open settings" title="Settings">⚙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="view home-view is-visible" aria-labelledby="welcomeTitle">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A QUIET PLACE TO BEGIN AGAIN</p>
+        <h1 id="welcomeTitle">Be still.<br><span>Find your steady.</span></h1>
+        <p class="hero-subtitle">Make room for the Word, settle your thoughts, and give God your next small step.</p>
+        <div class="hero-actions">
+          <button class="primary-button" id="beginSetup" type="button">Prepare a focus session <span aria-hidden="true">↗</span></button>
+          <a class="text-link" href="#session" id="exploreSession">Explore the focus room <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="home-verse">
+          <span class="quote-mark">“</span>
+          <p>Be still, and know that I am God.</p>
+          <small>PSALM 46:10 · KJV</small>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="A peaceful dawn sky above distant mountains">
+        <div class="sun-glow"></div>
+        <div class="hero-art-caption">
+          <span>REST · REFLECT · RETURN</span>
+          <span class="caption-line"></span>
+          <span>PSALM 46:10</span>
+        </div>
+      </div>
+
+      <section class="setup-panel" aria-labelledby="setupTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">MAKE THIS MOMENT YOURS</p>
+            <h2 id="setupTitle">Prepare your time</h2>
+          </div>
+          <span class="soft-sparkle" aria-hidden="true">✳</span>
+        </div>
+
+        <div class="setup-grid">
+          <div class="setting-field">
+            <label for="sessionMinutes">Total session <span class="field-hint">including breaks</span></label>
+            <div class="input-with-suffix">
+              <input id="sessionMinutes" type="number" min="10" max="240" step="5" value="60">
+              <span>minutes</span>
+            </div>
+            <div class="preset-row" aria-label="Quick session lengths">
+              <button class="preset-chip" data-minutes="25" type="button">25 min</button>
+              <button class="preset-chip" data-minutes="45" type="button">45 min</button>
+              <button class="preset-chip selected" data-minutes="60" type="button">60 min</button>
+              <button class="preset-chip" data-minutes="90" type="button">90 min</button>
+            </div>
+          </div>
+
+          <div class="setting-field">
+            <label for="breakMinutes">Each break</label>
+            <div class="input-with-suffix">
+              <input id="breakMinutes" type="number" min="1" max="20" value="5">
+              <span>minutes</span>
+            </div>
+            <p class="field-note">A gentle pause to stretch, breathe and reset.</p>
+          </div>
+
+          <div class="setting-field suggestion-field">
+            <span class="field-label">Suggested breaks</span>
+            <div class="suggestion-number">
+              <strong id="suggestedBreaks">3</strong>
+              <span>breaks</span>
+            </div>
+            <p class="field-note" id="scheduleSummary">Your hour includes 45 minutes of focus and 15 minutes of rest.</p>
+          </div>
+
+          <div class="setting-field">
+            <label for="verseInterval">Change Scripture every</label>
+            <select id="verseInterval">
+              <option value="1">1 minute</option>
+              <option value="2" selected>2 minutes</option>
+              <option value="3">3 minutes</option>
+              <option value="5">5 minutes</option>
+              <option value="10">10 minutes</option>
+            </select>
+            <p class="field-note">A new verse will appear while you focus.</p>
+          </div>
+
+          <div class="setting-field">
+            <label for="bibleVersion">Bible translation</label>
+            <select id="bibleVersion">
+              <option value="KJV">King James Version (KJV)</option>
+              <option value="NIV">New International Version (NIV)</option>
+              <option value="NKJV">New King James Version (NKJV)</option>
+              <option value="NLT">New Living Translation (NLT)</option>
+            </select>
+            <p class="field-note" id="versionHint">KJV verses are included and ready to use.</p>
+          </div>
+
+          <div class="setting-field">
+            <label>Choose a mood</label>
+            <div class="theme-choices" role="group" aria-label="Choose a colour theme">
+              <button type="button" class="theme-choice dusk-choice active" data-theme="dusk" aria-label="Midnight blue theme" title="Midnight blue"></button>
+              <button type="button" class="theme-choice cream-choice" data-theme="cream" aria-label="Warm cream theme" title="Warm cream"></button>
+              <button type="button" class="theme-choice sky-choice" data-theme="sky" aria-label="Soft sky theme" title="Soft sky"></button>
+            </div>
+            <p class="field-note">Your player and Scripture colours follow the theme.</p>
+          </div>
+        </div>
+
+        <div class="setup-footer">
+          <div class="schedule-mini">
+            <span class="schedule-icon">✦</span>
+            <span id="scheduleEquation">4 focus blocks · 3 gentle breaks · 60 minutes total</span>
+          </div>
+          <button class="primary-button" id="startSession" type="button">Start my session <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <section class="home-bottom">
+        <div>
+          <span class="tiny-label">A REMINDER FOR TODAY</span>
+          <p>“Let wisdom guide the next small step.”</p>
+        </div>
+        <span class="bottom-flourish" aria-hidden="true">✳</span>
+      </section>
+    </section>
+
+    <section id="session" class="view focus-view" aria-labelledby="focusHeading">
+      <div class="focus-topline">
+        <div class="session-brand"><span>✦</span> still <em>&amp;</em> steady</div>
+        <div class="top-clock-wrap">
+          <button class="top-clock" id="clockCycle" type="button" title="Click to change clock style" aria-label="Change clock style">
+            <span class="clock-caption" id="topClockCaption">SESSION LEFT</span>
+            <span class="clock-value" id="topClockValue">60:00</span>
+            <span class="clock-style-hint">CLICK TO CHANGE STYLE</span>
+          </button>
+          <div class="break-clock-card" id="breakClockCard" hidden>
+            <span class="clock-caption">BREAK TIME</span>
+            <span class="clock-value" id="breakClockValue">05:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="focus-progress-area">
+        <div class="progress-meta">
+          <span id="focusHeading">YOUR FOCUS SESSION</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="phase-status" id="phaseStatus">
+          <span class="status-dot"></span>
+          <span id="phaseLabel">A MOMENT TO FOCUS</span>
+        </div>
+      </div>
+
+      <div class="focus-stage" id="focusStage">
+        <div class="stage-corner-mark" aria-hidden="true">✧</div>
+
+        <div class="verse-card" id="verseCard">
+          <p class="verse-kicker" id="verseKicker">A WORD FOR THIS MOMENT</p>
+          <blockquote id="verseText">“Thy word is a lamp unto my feet, and a light unto my path.”</blockquote>
+          <div class="verse-divider"><span></span>✦<span></span></div>
+          <p class="verse-reference" id="verseReference">PSALM 119:105 · KJV</p>
+          <div class="verse-controls">
+            <button class="soft-button" id="previousVerse" type="button" aria-label="Previous verse">←</button>
+            <button class="soft-button" id="nextVerse" type="button">Another verse ↗</button>
+          </div>
+          <p class="copyright-note" id="verseCopyright" aria-live="polite"></p>
+        </div>
+
+        <div class="break-stage" id="breakStage" hidden>
+          <p class="verse-kicker">A MOMENT TO REST</p>
+          <div class="break-clock-face" id="breakClockFace"><span id="breakStageTime">05:00</span></div>
+          <h2>Breathe. Be still.</h2>
+          <p>Let your shoulders soften. You don't have to rush this moment.</p>
+          <span class="break-progress-label" id="breakProgressLabel">BREAK 1 OF 3</span>
+        </div>
+
+        <div class="stage-flourish" aria-hidden="true">✳</div>
+      </div>
+
+      <div class="focus-controls">
+        <div class="session-info">
+          <span class="info-dot"></span>
+          <span id="blockInfo">Focus block 1 of 4</span>
+          <span class="info-divider">·</span>
+          <span id="remainingPlan">60 minutes total</span>
+        </div>
+        <div class="control-buttons">
+          <button class="outline-button" id="resetSession" type="button">End session</button>
+          <button class="primary-button" id="pauseSession" type="button">Pause session <span aria-hidden="true">Ⅱ</span></button>
+          <button class="icon-button light-icon" id="fullscreenButton" type="button" aria-label="Toggle full screen" title="Full screen">⛶</button>
+        </div>
+      </div>
+
+      <section class="music-dock" aria-label="Music player">
+        <div class="music-intro">
+          <span class="music-symbol">♫</span>
+          <div>
+            <strong>A little background music</strong>
+            <small id="musicStatus">Add your own audio or a Spotify playlist</small>
+          </div>
+        </div>
+
+        <div class="record-player" id="recordPlayer">
+          <div class="record-disc">
+            <div class="record-label"><span>still<br>&amp; steady</span></div>
+          </div>
+          <div class="record-arm"></div>
+        </div>
+
+        <div class="music-controls">
+          <div class="track-title" id="trackTitle">Your quiet playlist</div>
+          <div class="round-controls">
+            <button class="round-control" id="previousTrack" type="button" aria-label="Previous track">⏮</button>
+            <button class="round-control play-control" id="toggleMusic" type="button" aria-label="Play music">▶</button>
+            <button class="round-control" id="nextTrack" type="button" aria-label="Next track">⏭</button>
+          </div>
+          <div class="playlist-select-row">
+            <label class="sr-only" for="audioPlaylist">Your playlist</label>
+            <select id="audioPlaylist"><option value="">Choose an audio track</option></select>
+            <button class="playlist-arrow" id="openMusicOptions" type="button" aria-label="Open music options">⌄</button>
+          </div>
+        </div>
+
+        <div class="music-options" id="musicOptions" hidden>
+          <label for="audioUrl">Add an audio URL (MP3, OGG or WAV)</label>
+          <div class="inline-form">
+            <input id="audioUrl" type="url" placeholder="https://example.com/peaceful-music.mp3">
+            <button id="addAudioUrl" type="button">Add</button>
+          </div>
+
+          <label class="file-label" for="audioFiles">Or choose audio files from this device</label>
+          <input id="audioFiles" type="file" accept="audio/*" multiple>
+
+          <div class="music-divider"></div>
+
+          <label for="spotifyUrl">Spotify playlist or album link</label>
+          <div class="inline-form">
+            <input id="spotifyUrl" type="url" placeholder="https://open.spotify.com/playlist/...">
+            <button id="loadSpotify" type="button">Load</button>
+          </div>
+
+          <p class="music-help">Spotify opens in its own embedded player below. Use its built-in controls to skip tracks.</p>
+
+          <div id="spotifyEmbedWrap" class="spotify-embed-wrap" hidden>
+            <iframe id="spotifyEmbed" title="Spotify playlist player" src="about:blank" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+          </div>
+
+          <p class="music-help">Added audio repeats automatically. A multi-track playlist advances and loops. Music stops when your focus session ends. Audio files stay on this device; audio URLs and Spotify links are saved in this browser only.</p>
+        </div>
+
+        <audio id="audioElement" preload="none"></audio>
+      </section>
+
+      <p class="focus-footer-quote">“Let wisdom guide the next small step.”</p>
+    </section>
+  </main>
+
+  <dialog class="settings-dialog" id="settingsDialog" aria-labelledby="settingsTitle">
+    <form method="dialog" class="dialog-head">
+      <div>
+        <p class="eyebrow">MAKE IT YOURS</p>
+        <h2 id="settingsTitle">Settings &amp; connections</h2>
+      </div>
+      <button class="icon-button close-dialog" aria-label="Close settings">×</button>
+    </form>
+
+    <div class="dialog-content">
+      <section class="settings-section">
+        <h3>Bible translations</h3>
+        <p>KJV is built in. To fetch NIV, NKJV and NLT, add an API.Bible key with permission for those translations. Your key stays in this browser's local storage.</p>
+        <label for="apiBibleKey">API.Bible API key</label>
+        <div class="inline-form">
+          <input type="password" id="apiBibleKey" autocomplete="off" placeholder="Paste your API.Bible key">
+          <button id="saveBibleKey" type="button">Save key</button>
+        </div>
+        <div class="settings-inline-actions">
+          <a href="https://api.bible/" target="_blank" rel="noopener">Get an API.Bible key ↗</a>
+          <button type="button" class="text-button" id="clearBibleKey">Remove saved key</button>
+        </div>
+        <p class="settings-note" id="apiKeyStatus" role="status">No API key added. KJV will work without one.</p>
+      </section>
+
+      <section class="settings-section">
+        <h3>Display</h3>
+        <label for="clockStyleSelect">Clock style</label>
+        <select id="clockStyleSelect">
+          <option value="digital">Digital</option>
+          <option value="minimal">Minimal</option>
+          <option value="analog">Analogue</option>
+        </select>
+        <p class="settings-note">You can also click the session clock to cycle through styles.</p>
+      </section>
+
+      <section class="settings-section">
+        <h3>Privacy &amp; hosting</h3>
+        <p>Session settings and saved links live in this browser. No account is required. Do not commit API keys, private audio or copyrighted music files to a public GitHub repository.</p>
+      </section>
+    </div>
+
+    <div class="dialog-foot">
+      <button class="primary-button" id="closeSettings" type="button">Done <span>✓</span></button>
+    </div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
